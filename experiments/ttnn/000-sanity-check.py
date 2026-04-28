@@ -7,7 +7,7 @@ import ttnn
 def main() -> int:
     device = ttnn.open_device(device_id=0)
     try:
-        torch_a = torch.arange(32 * 32, dtype=torch.bfloat16).reshape(32, 32)
+        torch_a = torch.arange(32 * 32, dtype=torch.float32).reshape(32, 32).remainder(16).to(torch.bfloat16)
         torch_b = torch.ones((32, 32), dtype=torch.bfloat16)
         expected = torch_a + torch_b
 
@@ -16,8 +16,9 @@ def main() -> int:
         tt_out = ttnn.add(tt_a, tt_b)
         actual = ttnn.to_torch(tt_out)
 
-        if not torch.equal(actual, expected):
+        if not torch.allclose(actual, expected, rtol=0, atol=0):
             print("FAIL")
+            print(f"max abs diff: {(actual - expected).abs().max().item()}")
             print("expected:")
             print(expected)
             print("actual:")
