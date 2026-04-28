@@ -5,3 +5,5 @@
 CLAUDE.md
 claude.md
 AGENTS.md
+__pycache__/
+*.py[cod]
