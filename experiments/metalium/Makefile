@@ -4,7 +4,8 @@ TT_METALIUM_DIR := $(abspath $(TT_METAL_BUILD)/lib/cmake/tt-metalium)
 
 .PHONY: configure build clean
 
-SRC ?= 000-null-compute-kernel-1chip.cpp
+# SRC ?= 000-null-compute-kernel-1chip.cpp
+SRC ?= 001-null-compute-kernel-2chip-2_1x1mesh.cpp
 OUT ?= $(basename $(SRC)).out
 
 configure:
