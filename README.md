@@ -61,20 +61,6 @@ source python_env/bin/activate
 
 In short: use the wheel first for experiment scripts in this repo; compile `tt-metal` when the source tree itself becomes part of the experiment.
 
-## Sanity Check
-
-For a first local sanity check with an already installed software stack, run:
-
-```bash
-python experiments/ttnn/000-sanity-check.py
-```
-
-If you are using the checked-out source tree instead of an installed `ttnn` package, use:
-
-```bash
-PYTHONPATH=tt-metal/ttnn python experiments/ttnn/000-sanity-check.py
-```
-
 ## Organization
 
 - `tt-metal/`: Tenstorrent `tt-metal` repository as a submodule.

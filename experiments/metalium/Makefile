@@ -21,4 +21,4 @@ clean:
 	rm -rf build
 
 run: build
-	TT_METAL_RUNTIME_ROOT=$(TT_METAL_ROOT) ./build/$(OUT)
+	TT_METAL_RUNTIME_ROOT=$(TT_METAL_ROOT) TT_METAL_KERNEL_PATH=$(CURDIR) ./build/$(OUT)
