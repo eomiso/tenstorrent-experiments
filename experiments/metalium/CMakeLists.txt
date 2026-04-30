@@ -3,7 +3,6 @@ project(tenstorrent_metalium_experiments)
 
 find_package(TT-Metalium REQUIRED)
 
-add_executable(000-null-compute-kernel)
-target_sources(000-null-compute-kernel PRIVATE 000-null-compute-kernel.cpp)
+add_executable(${EXAMPLE_OUT} ${EXAMPLE_SRC})
 
-target_link_libraries(000-null-compute-kernel PUBLIC TT::Metalium)
+target_link_libraries(${EXAMPLE_OUT} PUBLIC TT::Metalium)
